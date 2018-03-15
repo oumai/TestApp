@@ -1,0 +1,72 @@
+//
+//  PrefixHeader.pch
+//  TestApp
+//
+//  Created by MichaeOu on 2017/12/20.
+//  Copyright © 2017年 康美. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//颜色
+// RGB颜色转换（16进制->10进制）
+#define UIColorFromHEX(rgbValue,A) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:A]
+#define UIColorFromRGB(R,G,B,A) [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
+
+#define IS_IOS10 ([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] >= 10)
+#define IS_IOS9 ([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] >= 9)
+#define IS_IOS8 ([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] >= 8)
+#define IS_IOS7 ([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] >= 7)
+#define IS_IOS6 ([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] == 6)
+
+
+//定义设备的类型
+
+#define iPad   (([[NSUserDefaults standardUserDefaults] integerForKey:@"ImageResolutionHeight"]) == 1024?YES:NO)
+
+#define iPhone4   (([[NSUserDefaults standardUserDefaults] integerForKey:@"ImageResolutionHeight"]) == 960?YES:NO)
+#define iPhone5   (([[NSUserDefaults standardUserDefaults] integerForKey:@"ImageResolutionHeight"]) == 1136?YES:NO)
+#define iPhone6   (([[NSUserDefaults standardUserDefaults] integerForKey:@"ImageResolutionHeight"]) == 1334?YES:NO)
+#define iPhone6p  (([[NSUserDefaults standardUserDefaults] integerForKey:@"ImageResolutionHeight"]) == 2208?YES:NO)
+#define iPhoneX   (([[NSUserDefaults standardUserDefaults] integerForKey:@"ImageResolutionHeight"]) == 2436?YES:NO)
+
+
+//宽高
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
+// 弱引用
+#define WeakSelf __weak typeof(self) weakSelf = self;
+
+#define RGB(a,b,c)      [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:1.0]
+#define batRandomColor RGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+
+
+//导航首页缩放系数
+#define scaleValue (3.0f / 4.0f)
+#define scale6pValue (4.0f / 5.0f)
+
+//蓝色
+#define BASE_COLOR UIColorFromHEX(0x0182eb, 1)
+//背景灰色
+#define BASE_BACKGROUND_COLOR UIColorFromHEX(0xf5f5f5, 1)
+//文字灰色
+#define STRING_DARK_COLOR UIColorFromHEX(0x333333, 1)
+#define STRING_MID_COLOR UIColorFromHEX(0x666666, 1)
+#define STRING_LIGHT_COLOR UIColorFromHEX(0x999999, 1)
+//渐变色
+#define START_COLOR UIColorFromHEX(0x29ccbf, 1)
+#define END_COLOR UIColorFromHEX(0x6ccc56, 1)
+//分割线颜色
+#define BASE_LINECOLOR UIColorFromHEX(0xe0e0e0, 1)
+//辅助色
+#define SUB_RED_COLOR UIColorFromHEX(0xff4343, 1)
+#define SUB_ORIGIN_COLOR UIColorFromHEX(0xfc9f26, 1)
+
+#endif /* PrefixHeader_pch */
