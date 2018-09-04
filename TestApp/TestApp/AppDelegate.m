@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    NSLog(@",one must not always be irreplaceable");
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
     return YES;
 }
